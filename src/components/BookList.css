@@ -1,0 +1,7 @@
+.sec_container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px;
+    border-radius: 3.4px;
+    justify-content: center;
+}
