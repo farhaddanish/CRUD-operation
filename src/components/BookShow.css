@@ -4,5 +4,32 @@
     background-color: #f1f1f1;
     margin: 2px;
     border-radius: 3.4px;
+    height: max-content;
+    height: fit-content;
+    padding: 0px 0px 10px 0px;
     /* Add any additional styles to the boxes */
-  }
+}
+
+.box button {
+    margin: 0 5px;
+    padding: 10px 30px;
+    background-color: #32383e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.images {
+    width: 40%;
+    text-align: center;
+}
+
+.edit-forms {
+    margin-top: 10px;
+}
+
+.edit-forms button {
+    margin-top: 10px;
+}

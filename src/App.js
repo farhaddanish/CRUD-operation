@@ -27,6 +27,18 @@ function App() {
         setbooks(updated_books);
     };
 
+    const updateBook = (id, title) => {
+        const updatebook = books.map((value, index) => {
+            if (value.id === id) {
+                return { ...value, title };
+            }
+
+            return value;
+        });
+
+        setbooks( updatebook);
+    };
+
     const checkforBooks =
         books.length <= 0 ? (
             <p>Sorry there is no book Let's try a new book</p>
@@ -37,8 +49,14 @@ function App() {
             <h1>International Book Show</h1>
             {checkforBooks}
             <div>
+               
+                <BookList
+                    books={books}
+                    onDelete={deleteBook}
+                    onUpdate={updateBook}
+                />
+
                 <BookCreate onCreate={createBook} />
-                <BookList books={books} deleteHandler={deleteBook} />
             </div>
         </div>
     );

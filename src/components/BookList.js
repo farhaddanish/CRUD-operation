@@ -1,12 +1,14 @@
 import React from "react";
 import BookShow from "./bookShow";
-import "./BookList.css"
+import "./BookList.css";
 
-const BookList = ({ books, deleteHandler }) => {
+const BookList = ({ books, onDelete, onUpdate }) => {
     const showBooks = books.map((value, index) => {
-        return <BookShow book={value} key={index} deleteHandler={deleteHandler} />;
+        return (
+            <BookShow book={value} key={index} onDelete={onDelete} onUpdate={onUpdate} />
+        );
     });
-    return <div className="sec_container" >{showBooks}</div>;
+    return <div className="sec_container">{showBooks}</div>;
 };
 
 export default BookList;
