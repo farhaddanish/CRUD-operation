@@ -1,8 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./BookCreate.css";
-const BookCreate = ({ onCreate }) => {
+import booksContext from "../context/booksContext";
+
+const BookCreate = () => {
     const [title, setTiltle] = useState("");
+
+    const { createBook } = useContext(booksContext);
 
     const handleChange = (event) => {
         setTiltle(event.target.value);
@@ -11,7 +15,7 @@ const BookCreate = ({ onCreate }) => {
     const handleSubmitForm = (event) => {
         event.preventDefault();
         setTiltle("");
-        onCreate(title);
+        createBook(title);
     };
 
     return (

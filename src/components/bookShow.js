@@ -1,11 +1,15 @@
 import React from "react";
 import "./BookShow.css";
-import { useState } from "react";
-const BookShow = ({ book, onDelete, onUpdate }) => {
+import { useState, useContext } from "react";
+import booksContext from "../context/booksContext";
+
+const BookShow = ({ book }) => {
     const [update_value, setUpdate_value] = useState("");
     const [visible, setvisible] = useState(false);
+    const { deleteBook, updateBook } = useContext(booksContext);
+
     const deleteHandler = () => {
-        onDelete(book.id);
+        deleteBook(book.id);
     };
 
     const changeHandler = (event) => {
@@ -19,7 +23,7 @@ const BookShow = ({ book, onDelete, onUpdate }) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        onUpdate(book.id, update_value);
+        updateBook(book.id, update_value);
         setvisible(false);
     };
 
@@ -31,12 +35,12 @@ const BookShow = ({ book, onDelete, onUpdate }) => {
         </form>
     ) : undefined;
 
-
-    const image_url = `https://picsum.photos/id/${book.id}/400/250`
+    const image_url = `https://picsum.photos/id/${book.id}/400/250`;
     return (
         <div className="box">
             <h3>{book.title}</h3>
-            <img className="images" src={image_url} alt={book.id} /><br />
+            <img className="images" src={image_url} alt={book.id} />
+            <br />
             <button onClick={deleteHandler}>Delete</button>
             <button onClick={editHandler}>Edit</button>
 
