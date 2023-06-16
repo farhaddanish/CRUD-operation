@@ -1,15 +1,18 @@
 import React from "react";
 import BookCreate from "./components/BookCreate";
 import "./App.css";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useCallback } from "react";
 import BookList from "./components/BookList";
 import booksContext from "./context/booksContext";
 
 function App() {
-    const { fetchBooks, books } = useContext(booksContext);
+    const { stableFetchBooks, books } = useContext(booksContext);
+
     useEffect(() => {
-        fetchBooks();
-    }, []);
+        stableFetchBooks();
+
+
+    }, [stableFetchBooks]);
 
     const checkforBooks =
         books.length <= 0 ? (
